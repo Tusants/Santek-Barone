@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "toastify-js": "^1.12.0"
+  }
+}
