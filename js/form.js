@@ -5,36 +5,41 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const formData = new FormData(form);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
 
         try {
             const response = await fetch('/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formObject),
+                body: new URLSearchParams(formData)
             });
 
             if (response.ok) {
-                const result = await response.text();
+
                 Toastify({
-                    text: result,
-                    backgroundColor: "green",
+                    text: "Formulario enviado con éxito",
                     duration: 3000,
+                    backgroundColor: "green",
+                    close: true
                 }).showToast();
-                form.reset(); // Opcional: Limpia el formulario después de enviarlo
+                
+
+                form.reset();
             } else {
-                throw new Error('Error en la solicitud');
+
+                Toastify({
+                    text: "Error al enviar el formulario",
+                    duration: 3000,
+                    backgroundColor: "red",
+                    close: true
+                }).showToast();
             }
         } catch (error) {
+            console.error('Error:', error);
+
             Toastify({
-                text: `Error: ${error.message}`,
-                backgroundColor: "red",
+                text: "Error al enviar el formulario",
                 duration: 3000,
+                backgroundColor: "red",
+                close: true
             }).showToast();
         }
     });

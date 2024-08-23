@@ -5,27 +5,23 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Middleware para parsear datos
+
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/pages', express.static(path.join(__dirname, 'pages')));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Servir archivos desde 'node_modules' para los estilos de Toastify
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
-
-// Ruta para la página principal
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Ruta para la página de cotización
 app.get('/cotizacion', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'cotizacion.html'));
+    res.sendFile(path.join(__dirname, 'pages', 'cotizacion.html'));
 });
 
-// Ruta para manejar el envío del formulario
 app.post('/submit', async (req, res) => {
     const { model, color, storage, battery, usageTime, condition, details } = req.body;
 
@@ -55,7 +51,6 @@ app.post('/submit', async (req, res) => {
     }
 });
 
-// Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
 });
