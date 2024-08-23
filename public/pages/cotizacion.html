@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/css/forms.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../node_modules/toastify-js/src/toastify.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotiza tu iPhone</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="../public/img/santech/logo.jpeg" alt="Logo">
+        </div>
+        <div class="links">
+            <a href="../public/index.html">Inicio</a>
+            <a href="../public/pages/catalogo.html">Nuestros Modelos</a>
+            <a href="#">Contáctenos(not Service)</a>
+        </div>
+        <div class="cart">
+            <div id="cart-icon" class="cart-icon">
+                <span role="img" aria-label="cart">🛒</span>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header> 
+
+    <main>
+        <div class="form-container">
+            <div class="card">
+                <h2>Cotizamos tu Dispositivo</h2>
+                <form id="iphone-form" action="/submit" method="post">
+                    <label for="model">Modelo:</label>
+                    <input type="text" id="model" name="model" required>
+        
+                    <label for="color">Color:</label>
+                    <input type="text" id="color" name="color" required>
+        
+                    <label for="storage">Espacio de Almacenamiento:</label>
+                    <select id="storage" name="storage" required>
+                        <option value="">Selecciona un tamaño</option>
+                        <option value="64GB">64GB</option>
+                        <option value="128GB">128GB</option>
+                        <option value="256GB">256GB</option>
+                        <option value="512GB">512GB</option>
+                    </select>
+        
+                    <label for="battery">Estado de la Batería:</label>
+                    <input type="text" id="battery" name="battery" required>
+        
+                    <label for="usage-time">Tiempo de Uso:</label>
+                    <input type="text" id="usage-time" name="usage-time" required>
+        
+                    <label for="condition">Estado:</label>
+                    <select id="condition" name="condition" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="usado">Usado</option>
+                        <option value="reacondicionado">Reacondicionado</option>
+                    </select>
+        
+                    <label for="details">Detalles o Especificaciones:</label>
+                    <textarea id="details" name="details" rows="4" required></textarea>
+        
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <footer class="main-footer">
+            <div class="footer-banner">
+                <img src="../public/img/santech/Banner.png" alt="bannerfooter">
+            </div>
+            <div class="footer-text">
+                <h4>¿Por qué Elegirnos?</h4>
+                <p>En nuestra empresa nos especializamos en la compra y venta de iPhones, ofreciendo dispositivos de alta calidad, rigurosamente inspeccionados y con garantía. Nos destacamos por nuestro compromiso con la satisfacción del cliente, brindando atención personalizada y asesoramiento experto en cada transacción.</p>
+                <div class="contact-info">
+                    <a target="_blank" href="https://www.facebook.com" class="social-icon"><img src="../public/img/santech/iconInsta.jpeg" alt="Instagram"></a>
+                    <a target="_blank" href="https://www.instagram.com" class="social-icon"><img src="../public/img/santech/iconFace.png" alt="Facebook"></a>
+                    <a target="_blank" href="https://www.mercadolibre.com.ar" class="social-icon"><img src="../public/img/santech/icon-mL.png" alt="Mercado Libre"></a>
+                    <p class="text-center">&copy; 2024 Santek. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </footer>
+    <script src="node_modules/toastify-js/src/toastify.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>
